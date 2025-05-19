@@ -1,0 +1,58 @@
+/*──────────────────────────────────────────────
+  WebNovel - Book-detail page overrides
+  COP3834 – Custom CSS Lab – 2025-05-18
+──────────────────────────────────────────────*/
+
+/* 1️⃣  Dark-mode shell + body font */
+body{
+  background:#111922 !important;   /* navy charcoal */
+  color:#e8e8e8       !important;
+  font-family:"Inter","Segoe UI",sans-serif !important;
+}
+
+/* 2️⃣  Hot-pink primary buttons / controls */
+button,
+input[type="button"],
+input[type="submit"],
+.btn-primary{
+  background:#eb1551 !important;   /* pink-red */
+  color:#fff         !important;
+  border:none        !important;
+}
+
+/* 3️⃣  Rename “Tags” → “Main Tags” (fake heading text) */
+p.g_h2.fs24.lh32.fw700.pl1.ell.fl{          /* original heading */
+  visibility:hidden !important;             /* hide real text   */
+}
+p.g_h2.fs24.lh32.fw700.pl1.ell.fl::before{  /* inject new text  */
+  content:"Main Tags";
+  visibility:visible;
+  display:block;
+}
+
+/* 4️⃣  Replace the “# SYSTEM” tag with “# TECH”               */
+a[href*="system-fanfic"]{          /* the real anchor */
+  visibility:hidden !important;    /* hide it         */
+}
+a[href*="system-fanfic"]::before{  /* fake replacement */
+  content:"# TECH";
+  visibility:visible;
+}
+
+/* 5️⃣  Shorten the (very long) book title → “RTDT”            */
+div[class*="det-hd-detail"] h1{
+  visibility:hidden !important;    /* hide original   */
+}
+div[class*="det-hd-detail"] h1::before{
+  content:"RTDT";                  /* show shorthand  */
+  visibility:visible;
+}
+
+/* 6️⃣  Inflate chapter count → “2000000 Chapters”             */
+div[class*="det-hd-detail"] span{
+  visibility:hidden !important;    /* hide 204 etc.   */
+}
+div[class*="det-hd-detail"] span::before{
+  content:"2000000 Chapters";
+  visibility:visible;
+}
